@@ -1,0 +1,106 @@
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
+import ResultsTvTime from "./results/ResultsTvTime";
+
+
+
+const Home = () => {
+
+    const [error, setError] = useState(null);
+    const [vreme, setVreme] = useState([]);
+    const [serije, setSerije] = useState([]);
+
+    const navigate = useNavigate();
+
+
+    useEffect(() => {
+        getVreme();
+        getTv();
+    }, [])
+
+    const getVreme = async () => {
+        const urlTime = `https://api.api-ninjas.com/v1/worldtime?city=Novi sad`;
+        try {
+            const response = await axios.get(urlTime,
+                {
+                    headers: {
+                        'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
+                    }
+                }
+            );
+
+            const dataTime = response.data;
+            console.log("koliko je sati", dataTime);
+            setVreme(dataTime);
+
+
+
+        } catch (err) {
+            setError(err);
+
+        }
+    };
+
+    const getTv = async () => {
+
+        const mestoDatuma = vreme
+
+        const urlTv = `https://api.tvmaze.com/schedule/web?date=${mestoDatuma}`;
+        // const urlTv = `https://api.tvmaze.com/schedule?country=gb&date=${mestoDatuma}`;
+        // const urlTv = `https://api.tvmaze.com/schedule/web?date=${mestoDatuma}&country=US`
+        try {
+            const responseTv = await axios.get(urlTv);
+
+            const dataTv = responseTv.data
+            console.log("podaci iz Serija", dataTv);
+            setSerije(dataTv);
+
+
+        } catch (err) {
+            setError(err);
+        }
+    };
+
+    const clickShow = (showId) => {
+        const LinkTo = `/showDetails/${showId}`;
+        navigate(LinkTo);
+
+    }
+
+
+    return (
+        <>
+        <div className="showActor">Serije na dan: {vreme.date}</div>
+            <div className="gridTv">
+                {serije.map((serija) => (
+                    <>
+                        <div className="gridItem">
+                            <img src={serija._embedded.show.image?.medium} alt="no picture"
+                                onClick={() => clickShow(serija._embedded.show.id)}
+                            />
+                            <p className="showName"
+                                onClick={() => clickShow(serija._embedded.show.id)}>
+                                {serija._embedded.show.name}</p>
+                            <p>{serija._embedded.show.language + " " + serija._embedded.show.type}</p>
+
+                            <ul className="genresTv">
+                                <li>{serija._embedded.show.genres?.[0]}</li>
+                                <li>{serija._embedded.show.genres?.[1]}</li>
+                            </ul>
+
+
+                            <ul className="genresTv">
+                                <li>{serija._embedded.show.genres?.[2]}</li>
+                                <li>{serija._embedded.show.genres?.[3]}</li>
+                            </ul>
+
+                        </div>
+                    </>
+                ))}
+            </div>
+        </>
+    )
+
+}
+export default Home;

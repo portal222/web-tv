@@ -1,0 +1,432 @@
+.navigation {
+    margin: auto;
+    display: flex;
+    width: 1200px;
+    background-color: rgb(248, 141, 9);
+
+    .search {
+        display: flex;
+    }
+}
+
+.home {
+    width: 1200px;
+    margin: auto;
+    background-color: aquamarine;
+}
+
+.place {
+    margin: auto;
+
+    width: 1200px;
+    padding: 10px;
+    justify-content: center;
+    background-image: linear-gradient(rgb(222, 211, 211), rgb(194, 213, 194));
+
+
+    .placeBut {
+
+        display: flex;
+        justify-content: space-around;
+
+    }
+
+
+}
+
+.gridTv {
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    width: 1200px;
+    gap: 0px;
+    background-image: linear-gradient(rgb(222, 211, 211), rgb(194, 213, 194));
+
+    // padding: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+
+    .gridItem {
+        // background-color: rgba(255, 255, 255, 0.8);
+        // border: 6px solid rgba(0, 0, 0, 0.8);
+        padding: 3px;
+        max-width: 200px;
+
+        text-align: center;
+
+        img {
+            width: 198px;
+            cursor: pointer;
+
+
+        }
+
+        .showName {
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+
+            &:hover {
+                color: chocolate;
+            }
+        }
+
+        .genresTv {
+            font-size: 16px;
+            display: flex;
+            padding: 0px;
+
+            li {
+                list-style: none;
+                padding-right: 4px;
+            }
+        }
+    }
+}
+
+.showActor {
+    display: flex;
+}
+
+.showMain,
+.showActor {
+    margin: auto;
+    width: 1200px;
+    // background-color: rgb(239, 242, 242);
+    background-image: linear-gradient(rgb(222, 211, 211), rgb(194, 213, 194));
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    padding: 10px;
+
+    .borderBotom {
+        border-bottom: 1px solid rgb(98, 112, 97);
+    }
+
+    .wrap {
+
+        color: blue;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            color: chocolate;
+        }
+    }
+
+    .sezone {
+        padding-left: 20px;
+        font-size: 18px;
+        max-width: 300px;
+        max-height: 200px;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+
+    .bigImg {
+        width: 1180px;
+
+        text-align: center;
+    }
+
+    .clickShow {
+        font-weight: bold;
+        font-size: 26px;
+        cursor: pointer;
+
+        &:hover {
+            color: chocolate;
+        }
+    }
+
+    .showCast {
+        border-bottom: 2px solid gray;
+        font-family: Tahoma, sans-serif;
+        background-color: #cccccc;
+    }
+
+    .holdImg {
+          padding-right: 10PX;
+
+        .imgShow {
+             margin-top: 2px;
+            min-width: 500px;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+    }
+
+    .showName {
+        padding: 2px 10px;
+        font-weight: bold;
+        font-size: 28px;
+    }
+
+    .sezonNum {
+        font-size: 25px;
+        font-weight: bold;
+        width: 50px;
+    }
+
+    .sezonDate {
+        width: 250px;
+    }
+
+    .airDate {
+        width: 70px;
+    }
+
+    .episName {
+        width: 200px;
+    }
+
+    .summaryEpis {
+        width: 540px;
+    }
+
+    .imgSezons {
+        min-width: 450px;
+    }
+
+    .showNameActor {
+        padding: 2px 30px;
+        font-weight: bold;
+        font-size: 28px;
+        cursor: pointer;
+
+        &:hover {
+            color: chocolate;
+        }
+
+    }
+
+    .summary {
+        padding: 10px 15px;
+        font-size: 24px;
+        border: 1px solid rgb(121, 121, 121);
+        border-radius: 19px;
+    }
+
+    .language {
+        padding: 2px 10px;
+        font-weight: bold;
+        min-width: 335px;
+        max-width: 335px;
+    }
+
+    .genres {
+        display: flex;
+        font-size: 20px;
+
+        list-style: none;
+        // border-bottom: 1px solid gray;
+
+        li {
+            padding-right: 4px;
+        }
+    }
+
+    td {
+        padding: 2px 5px;
+    }
+
+
+
+
+
+    a {
+        font-weight: bold;
+        font-size: 20px;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            color: coral;
+        }
+    }
+
+
+
+    .imgCastMain {
+        // margin: auto;
+        max-width: 1100px;
+        overflow-y: hidden;
+        overflow-x: scroll;
+
+        .guest {
+            display: flex;
+
+            width: 500px;
+
+            .guestImg {
+                width: 245px;
+            }
+        }
+
+        .guestName {
+            display: flex;
+            justify-content: space-between;
+
+            .click {
+                cursor: pointer;
+                padding-right: 30px;
+
+                &:hover {
+                    color: chocolate;
+                }
+            }
+        }
+
+        .imgCast {
+            // display: flex;
+            // flex-direction: row;
+            min-width: 240px;
+
+
+            //  padding-right: 5px;
+            // justify-content: end;
+
+            p {
+                cursor: pointer;
+
+                &:hover {
+                    color: chocolate;
+                }
+            }
+        }
+    }
+
+    .nameComm {
+        font-size: 24px;
+        width: 800px;
+
+        ul {
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            padding: 0;
+        }
+    }
+
+    .collapseTv {
+        display: flex;
+        flex-direction: row;
+        background-color: #DFFF00;
+
+
+
+    }
+
+    .tvName {
+        width: 300px;
+        font-weight: bold;
+    }
+
+    th {
+        text-align: left;
+    }
+
+    .imgTv {
+        width: 60px;
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .showActor {
+        display: block;
+        width: 355px;
+        font-size: 16px;
+        padding: 5px;
+
+        .holdImg {
+            padding: 2px;
+
+            .imgShow {
+                max-width: 350px;
+                min-width: 350px;
+            }
+        }
+
+        .language {
+            padding: 1px 4px;
+            max-width: 150px;
+            min-width: 150px;
+            background-color: #DFFF00;
+        }
+        .showCast {
+            max-width: 350px;
+        }
+        .clickShow {
+            font-size: 18px;
+            max-width: 150px;
+                        .genres {
+                font-size: 16px;
+            }
+        }
+        .showName {
+            padding: 1px 5px;
+         
+            font-size: 22px;
+            max-width: 350px;
+        }
+
+    }
+
+    .place {
+        width: 355px;
+
+        .placeBut {
+
+            display: block;
+        }
+
+    }
+
+
+    .gridTv {
+
+        grid-template-columns: auto auto auto;
+        width: 355px;
+        background-image: linear-gradient(#c8e6c9, #dcedc8);
+
+
+        font-size: 16px;
+
+        .gridItem {
+
+
+            max-width: 110x;
+            padding: 0px;
+
+
+
+            img {
+                width: 108px;
+                cursor: pointer;
+
+
+            }
+
+            .showName {
+                font-size: 18px;
+
+            }
+
+            .genresTv {
+                // max-width: 105px;
+                font-size: 14px;
+                display: flex;
+
+
+                li {
+                    list-style: none;
+                    padding-right: 3px;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,233 @@
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
+
+// import Loader from "./Loader";
+import { useParams } from "react-router-dom";
+import SearchPlaceTv from "../search/SearchPlaceTv";
+import ResultsTvTime from "../results/ResultsTvTime";
+import { useNavigate } from "react-router-dom";
+import SezoneList from "./SezoneList";
+import EpisodeNumber from "./EpisodeNumber";
+// import ShowImg from "./ShowImg";
+
+
+// import ActorCharacter from "./ActorCharacters";
+// import ActorCharacterShow from "./ActorCharacterShow";
+
+
+
+
+
+
+
+
+const DetailsTvShow = () => {
+    const [error, setError] = useState(null);
+    const [show, setShow] = useState([]);
+    const [cast, setCast] = useState([]);
+    const [sezons, setSezons] = useState([]);
+    const [images, setImages] = useState([]);
+
+    const navigate = useNavigate();
+
+
+
+
+    const params = useParams()
+    const showId = params.showId;
+
+    useEffect(() => {
+        getShow();
+
+    }, []);
+    console.log("iz detailsShow params:", showId);
+
+    const getShow = async () => {
+
+        // const url = ` https://api.tvmaze.com/people/${actorId}?embed=castcredits`;
+        // const url = ` https://api.tvmaze.com/people/${actorId}`;
+        const url = `https://api.tvmaze.com/shows/${showId}?embed=cast`
+        const urlEp = `https://api.tvmaze.com/shows/${showId}/episodes`
+        const urlSez = `https://api.tvmaze.com/shows/${showId}/seasons`
+        // const urlImg = `https://api.tvmaze.com/shows/${showId}/images`
+
+
+        try {
+            const response = await axios.get(url);
+            const responseEp = await axios.get(urlEp);
+            const responseSez = await axios.get(urlSez);
+            // const responseImg = await axios.get(urlImg);
+
+
+
+
+
+            const data = response.data;
+            const dataEp = responseEp.data;
+            const dataSez = responseSez.data;
+            // const dataImg = responseImg.data;
+
+
+
+
+
+            console.log("detalji show-a", data);
+            console.log("detalji epizoda", dataEp);
+            console.log("detalji Sezona", dataSez);
+            // console.log("slike showa", dataImg);
+
+            setShow(data);
+            setCast(data._embedded.cast);
+            setSezons(dataSez);
+            // setImages(dataImg);
+            // setCast(data._embedded.castcredits)
+
+
+            // setIsLoading(false);
+            // setResults(data.length);
+
+
+        } catch (err) {
+            setError(err);
+
+        }
+
+    };
+
+
+    const clickPerson = (actorId) => {
+        const LinkTo = `/actorDetails/${actorId}`;
+        navigate(LinkTo);
+
+    }
+
+    const clickImg = (images) => {
+        const LinkTo = `/imgShow/${images}`;
+        navigate(LinkTo);
+    }
+
+
+
+    return (
+        <>
+            <SearchPlaceTv />
+            <table className="showMain">
+
+                <tbody>
+
+                    <tr>
+                        <td rowSpan={8}
+                            className="holdImg">
+                            <img className="imgShow"
+                                src={show.image?.original} />
+                        </td>
+                        <td colSpan={2}
+                            className="showName">
+                            {show.name}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="language">
+                            {show.type}
+                        </td>
+                        <td >
+                            <ul className="genres">
+                                <li>{show.genres?.[0]}</li>
+                                <li>{show.genres?.[1]}</li>
+                                <li>{show.genres?.[2]}</li>
+                                <li>{show.genres?.[3]}</li>
+                            </ul>
+
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="language">{show.language}</td>
+                        <td className="language">{show.rating?.average + "  Runtime " + show.runtime + " min"}</td>
+                    </tr>
+
+                    <EpisodeNumber sezones={sezons} />
+
+
+                    <tr>
+                        <td>Premiered:{" " + show.premiered}</td>
+                        <td>Ended:{" " + show.ended}</td>
+                    </tr>
+                    <tr>
+                        <td colSpan={3} className="summary">
+                            {show.summary?.replace('<p>', '').replace('</p>', '').replace('<b>', '').replace('</b>', '')
+                                .replace('<i>', '').replace('</i>', '').replace('<p>', '').replace('</p>', '').replace('<br />', '').replace('<br />', '')}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            Web Chanel
+                            <a href={show.webChannel?.officialSite} target="_blank">
+                                {" " + show.webChannel?.name}</a>
+                        </td>
+                        <td>
+                            official Site
+                            <a href={show?.officialSite} target="_blank">
+                                {" " + show.network?.name}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <ResultsTvTime datum={show.updated} />
+                        <td className="wrap"
+                            onClick={() => clickImg(show.id)}>more picture</td>
+                    </tr>
+                    <tr>
+                        <td colSpan={3}><hr></hr></td>
+                    </tr>
+                    <tr>
+                        <td colSpan={3}
+                            className="imgCastMain">
+                            <table>
+                                <tbody>
+                                    <tr >
+                                        {cast.map((person) => (
+                                            <td >
+                                                <div className="guest">
+                                                    <img className="guestImg"
+                                                        src={person.character?.image?.medium} alt="no picture" />
+                                                    <img className="guestImg"
+                                                        src={person.person?.image?.medium} alt="no picture" />
+
+                                                </div>
+
+
+                                                <div className="guestName">
+                                                    <p>{person.character?.name}</p>
+                                                    <p className="click"
+                                                        onClick={() => clickPerson(person.person.id)}>{person.person?.name}</p>
+                                                </div>
+
+                                            </td>
+                                        ))}
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td colSpan={3}><hr></hr></td>
+                    </tr>
+
+                </tbody>
+
+
+
+            </table >
+
+            {/* <ShowImg seriasImg={images} /> */}
+            <SezoneList sezone={sezons} />
+
+
+        </>
+    )
+
+
+};
+export default DetailsTvShow;
