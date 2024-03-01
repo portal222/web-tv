@@ -5,7 +5,7 @@ import GlobalContext from "../GlobalContext";
 
 import SearchPlaceTv from "../search/SearchPlaceTv";
 import ResultsTvTime from "./ResultsTvTime";
-import ResultsActorCelebs from "./ResultsActorCelebs";
+// import ResultsActorCelebs from "./ResultsActorCelebs";
 import { useNavigate } from "react-router-dom";
 
 
@@ -77,7 +77,7 @@ const ResultsTvActors = () => {
                     >
 
                         <tr>
-                            <td rowSpan={8} className="holdImg">
+                            <td rowSpan={5} className="holdImg">
                                 <img className="imgShow"
                                     src={dataObj.person.image?.original} />
                             </td>
@@ -112,7 +112,7 @@ const ResultsTvActors = () => {
                         <tr>
                             <ResultsTvTime datum={dataObj.person.updated} />
                         </tr>
-                        <ResultsActorCelebs celebName={dataObj.person?.name}/>
+                        {/* <ResultsActorCelebs celebName={dataObj.person?.name}/> */}
                         <tr>
                             <td colSpan={3}><hr></hr></td>
                         </tr>

@@ -15,6 +15,8 @@ import ActorCharacterShow from "./ActorCharacterShow";
 
 
 
+
+
 const DetailsActor = () => {
     const [error, setError] = useState(null);
     const [person, setPerson] = useState([]);
@@ -113,8 +115,7 @@ const DetailsActor = () => {
                                     TvMaze</a>
                             </td>
                         </tr>
-
-
+                
                         <tr className="showCast">
                             <td>Show name</td>
                             <td>Cast</td>

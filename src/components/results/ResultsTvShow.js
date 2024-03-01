@@ -79,18 +79,16 @@ const ResultsTvShow = () => {
                         <tr>
                             <td rowSpan={7} className="holdImg">
                                 <img className="imgShow"
-                                    src={dataObj.show.image?.original} />
+                                    src={dataObj.show.image?.original}
+                                    onClick={() => clickShow(dataObj.show.id)} />
                             </td>
-                            <td colSpan={2}
-                                className="clickShow"
+                            <td className="clickShow"
                                 onClick={() => clickShow(dataObj.show.id)}>
                                 {dataObj.show.name}
                             </td>
                         </tr>
                         <tr>
-                            <td className="language">
-                                {dataObj.show?.type}
-                            </td>
+                           
                             <td >
                                 <ul className="genres">
                                     <li>{dataObj.show.genres?.[0]}</li>
@@ -102,32 +100,26 @@ const ResultsTvShow = () => {
                         </tr>
                         <tr>
                             <td className="language">{dataObj.show.language}</td>
-                            <td className="language">{dataObj.show?.rating.average + "  Runtime " + dataObj.show.averageRuntime + " min"}</td>
+                    
                         </tr>
                         <tr>
                             <td>Premiered:{" " + dataObj.show.premiered}</td>
-                            <td>Ended:{" " + dataObj.show.ended}</td>
+                          
                         </tr>
                         <tr>
-                            <td colSpan={3} className="summary">
+                            <td  className="summary">
                                 {dataObj.show.summary?.replace('<p>', '').replace('</p>', '').replace('<br', '').replace('<b>', '').replace('</b>', '')
                                     .replace('<i>', '').replace('</i>', '').replace('<p>', '').replace('</p>', '').replace('<br />', '')}
                             </td>
                         </tr>
                         <tr>
-                            <td >
-                                Web Chanel
-                                <a href={dataObj.show.webChannel?.officialSite} target="_blank">
-                                    {" " + dataObj.show.webChannel?.name}</a>
-                            </td>
-                            <td>
-                                official Site
-                                <a href={dataObj.show?.officialSite} target="_blank">
-                                    {" " + dataObj.show.network?.name}</a>
-                            </td>
+                          
+                            <ResultsTvTime datum={dataObj.show.updated} />
                         </tr>
                         <tr>
-                            <ResultsTvTime datum={dataObj.show.updated} />
+                            <td>
+                                <a href={dataObj.show.url} target="_blank">TvMaze</a>
+                            </td>
                         </tr>
                         {/* <ResultsCollapsableTv idNumber={dataObj.show.id} /> */}
                         {/* <tr>

@@ -111,74 +111,81 @@ const DetailsTvShow = () => {
     return (
         <>
             <SearchPlaceTv />
-            <table className="showMain">
+            <div className="showActor">
 
+
+                <div
+                    className="holdImg">
+                    <img className="imgShow"
+                        src={show.image?.original} />
+                </div>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td colSpan={2}
+                                className="showName">
+                                {show.name}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="language">
+                                {show.type}
+                            </td>
+                            <td >
+                                <ul className="genres">
+                                    <li>{show.genres?.[0]}</li>
+                                    <li>{show.genres?.[1]}</li>
+                                </ul>
+                                <ul className="genres">
+                                    <li>{show.genres?.[2]}</li>
+                                    <li>{show.genres?.[3]}</li>
+                                </ul>
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="language">{show.language}</td>
+                            <td className="language">{show.rating?.average + "  Runtime " + show.runtime + " min"}</td>
+                        </tr>
+
+                        <EpisodeNumber sezones={sezons} />
+
+
+                        <tr>
+                            <td>Premiered:{" " + show.premiered}</td>
+                            <td>Ended:{" " + show.ended}</td>
+                        </tr>
+                        <tr>
+                            <td colSpan={3} className="summary">
+                                {show.summary?.replace('<p>', '').replace('</p>', '').replace('<b>', '').replace('</b>', '')
+                                    .replace('<i>', '').replace('</i>', '').replace('<p>', '').replace('</p>', '').replace('<br />', '').replace('<br />', '')}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td >
+                                Web Chanel
+                                <a href={show.webChannel?.officialSite} target="_blank">
+                                    {" " + show.webChannel?.name}</a>
+                            </td>
+                            <td>
+                                official Site
+                                <a href={show?.officialSite} target="_blank">
+                                    {" " + show.network?.name}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <ResultsTvTime datum={show.updated} />
+                            <td className="wrap"
+                                onClick={() => clickImg(show.id)}>more picture</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <table className="showActor">
                 <tbody>
-
-                    <tr>
-                        <td rowSpan={8}
-                            className="holdImg">
-                            <img className="imgShow"
-                                src={show.image?.original} />
-                        </td>
-                        <td colSpan={2}
-                            className="showName">
-                            {show.name}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="language">
-                            {show.type}
-                        </td>
-                        <td >
-                            <ul className="genres">
-                                <li>{show.genres?.[0]}</li>
-                                <li>{show.genres?.[1]}</li>
-                                <li>{show.genres?.[2]}</li>
-                                <li>{show.genres?.[3]}</li>
-                            </ul>
-
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td className="language">{show.language}</td>
-                        <td className="language">{show.rating?.average + "  Runtime " + show.runtime + " min"}</td>
-                    </tr>
-
-                    <EpisodeNumber sezones={sezons} />
-
-
-                    <tr>
-                        <td>Premiered:{" " + show.premiered}</td>
-                        <td>Ended:{" " + show.ended}</td>
-                    </tr>
-                    <tr>
-                        <td colSpan={3} className="summary">
-                            {show.summary?.replace('<p>', '').replace('</p>', '').replace('<b>', '').replace('</b>', '')
-                                .replace('<i>', '').replace('</i>', '').replace('<p>', '').replace('</p>', '').replace('<br />', '').replace('<br />', '')}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            Web Chanel
-                            <a href={show.webChannel?.officialSite} target="_blank">
-                                {" " + show.webChannel?.name}</a>
-                        </td>
-                        <td>
-                            official Site
-                            <a href={show?.officialSite} target="_blank">
-                                {" " + show.network?.name}</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <ResultsTvTime datum={show.updated} />
-                        <td className="wrap"
-                            onClick={() => clickImg(show.id)}>more picture</td>
-                    </tr>
-                    <tr>
-                        <td colSpan={3}><hr></hr></td>
-                    </tr>
                     <tr>
                         <td colSpan={3}
                             className="imgCastMain">
@@ -190,8 +197,9 @@ const DetailsTvShow = () => {
                                                 <div className="guest">
                                                     <img className="guestImg"
                                                         src={person.character?.image?.medium} alt="no picture" />
-                                                    <img className="guestImg"
-                                                        src={person.person?.image?.medium} alt="no picture" />
+                                                    <img className="guestImgClick"
+                                                        src={person.person?.image?.medium} alt="no picture"
+                                                        onClick={() => clickPerson(person.person.id)} />
 
                                                 </div>
 
@@ -216,10 +224,10 @@ const DetailsTvShow = () => {
                     </tr>
 
                 </tbody>
+            </table>
 
 
 
-            </table >
 
             {/* <ShowImg seriasImg={images} /> */}
             <SezoneList sezone={sezons} />

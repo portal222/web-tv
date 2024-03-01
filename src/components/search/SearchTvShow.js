@@ -56,7 +56,7 @@ const SearchTvShow = (props) => {
             sx={{ p: '10px'}}
             aria-label='search'
             >
-        🎞
+        📺
             </IconButton>
         </Paper>
     );

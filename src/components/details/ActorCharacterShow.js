@@ -49,8 +49,8 @@ const ActorCharacterShow = (props) => {
 
     return (
         <>
-      
-            <div>
+
+            <div >
 
                 <p className="clickShow"
                     onClick={() => clickShow(show.id)}>
@@ -60,6 +60,8 @@ const ActorCharacterShow = (props) => {
                 <ul className="genres">
                     <li>{show.genres?.[0]}</li>
                     <li>{show.genres?.[1]}</li>
+                </ul>
+                <ul className="genres">
                     <li>{show.genres?.[2]}</li>
                     <li>{show.genres?.[3]}</li>
 

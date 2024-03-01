@@ -31,24 +31,26 @@ const EpisodeList = (props) => {
     return (
         <>
             {episode.map((epis) => (
-                <tbody>
-                    <tr>
-                        <td colSpan={2}>
-                            <p>{epis.number}</p>
-                            <p>{epis.airdate}</p></td>
-                        <td className="episName">{epis.name}</td>
-                        <td>
+                <div>
+                    <div className="sezoneList">
+                        <div >
+                            <p>{epis.number + " " + epis.airdate}</p>
+                          
+                            </div>
+                        <div className="sezonDate">{epis.name}</div>
+                        <div>
                             <img className="imgSezons"
                                 src={epis.image?.medium} />
-                        </td>
-                        <td >{epis.summary?.replace('<p>', '').replace('</p>', '')}</td>
+                        </div>
+                        <div className="summEpis">{epis.summary?.replace('<p>', '').replace('</p>', '').replace('<br>', '').replace('</br>', '')
+                        .replace('<i>', '').replace('</i>', '').replace('<i>', '').replace('</i>', '')}</div>
 
-                    </tr>
+                    </div>
 
                     <GuestCaracter embedded={epis?._embedded.guestcast} />
 
 
-                </tbody>
+                </div>
 
 
 

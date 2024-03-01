@@ -14,7 +14,7 @@ const ResultsTvTime = (props) => {
 
 return (
     <>
-    <td >
+    <td className="language">
        Updated: {" " + day + "." + month + "." + year}
     </td>
     </>

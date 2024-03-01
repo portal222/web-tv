@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 
 import { Routes, Route, NavLink, HashRouter } from 'react-router-dom';
 import Home from "./Home";
-import SearchPlaceTv from "./search/SearchPlaceTv";
+import SearchMain from "./search/searchMain";
 import ResultsTvActors from "./results/ResultsTvActors";
 import ResultsTvShow from "./results/ResultsTvShow";
 import DetailsTvShow from "./details/DetailsTvShow";
@@ -69,7 +69,7 @@ const Navigation = () => {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/search" element={<SearchPlaceTv />} />
+          <Route path="/search" element={<SearchMain />} />
           <Route path="/tvShow" element={<ResultsTvShow />} />
           <Route path="/tvActor" element={<ResultsTvActors />} />
           <Route path="/showDetails/:showId" element={<DetailsTvShow />} />

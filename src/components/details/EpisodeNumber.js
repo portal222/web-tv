@@ -7,15 +7,23 @@ const EpisodeNumber = (props) => {
 
 
     return (
-        <>
+        <><tr>
+            <td colSpan={2}>
                 <div className="sezone">
-            {props.sezones.map((sezone) => (
-                    <p colSpan={2} >
-                        {"Sezone: " + sezone.number + " Episode: " + sezone.episodeOrder}
-                    </p>
+                    {props.sezones.map((sezone) => (
 
-))}
-</div>
+                        <p>
+                            {"Sezone: " + sezone.number + " Episode: " + sezone.episodeOrder}
+                        </p>
+
+                    ))}
+                </div>
+            </td>
+        </tr>
+         
+                
+
+           
         </>
     )
 
