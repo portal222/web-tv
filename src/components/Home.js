@@ -82,7 +82,8 @@ const Home = () => {
                             <p className="showName"
                                 onClick={() => clickShow(serija._embedded.show.id)}>
                                 {serija._embedded.show.name}</p>
-                            <p>{serija._embedded.show.language + " " + serija._embedded.show.type}</p>
+                                <p className="genresTv">S{serija.season}  E{serija.number}</p>
+                            <p className="genresTv">{serija._embedded.show.language + " " + serija._embedded.show.type}</p>
 
                             <ul className="genresTv">
                                 <li>{serija._embedded.show.genres?.[0]}</li>

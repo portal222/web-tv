@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // import Loader from "./Loader";
 import { useParams } from "react-router-dom";
-import SearchPlaceTv from "../search/SearchPlaceTv";
+
 import ResultsTvTime from "../results/ResultsTvTime";
 import { useNavigate } from "react-router-dom";
 import SezoneList from "./SezoneList";
@@ -64,7 +64,7 @@ const DetailsTvShow = () => {
 
             const data = response.data;
             const dataEp = responseEp.data;
-            const dataSez = responseSez.data;
+            const dataSez = responseSez.data.reverse();
             // const dataImg = responseImg.data;
 
 
@@ -110,7 +110,7 @@ const DetailsTvShow = () => {
 
     return (
         <>
-            <SearchPlaceTv />
+         
             <div className="showActor">
 
 

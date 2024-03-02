@@ -2,8 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
 
 import GlobalContext from "../GlobalContext";
-
-import SearchPlaceTv from "../search/SearchPlaceTv";
 import ResultsTvTime from "./ResultsTvTime";
 // import ResultsActorCelebs from "./ResultsActorCelebs";
 import { useNavigate } from "react-router-dom";
@@ -63,7 +61,7 @@ const ResultsTvActors = () => {
 
     return (
         <>
-            <SearchPlaceTv />
+      
             <table className="showMain">
 
 

@@ -81,7 +81,11 @@ const Navigation = () => {
 
       </HashRouter>
 
-
+<div className="footer">
+<hr></hr>
+<p> &copy; InTerVal <br></br>
+Json base from <a href="https://www.tvmaze.com" target="_blank">TvMaze</a></p>
+</div>
 
 
 

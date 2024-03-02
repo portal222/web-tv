@@ -81,6 +81,7 @@ body {
             font-size: 20px;
             font-weight: bold;
             cursor: pointer;
+            margin: 1px;
 
             &:hover {
                 color: chocolate;
@@ -91,6 +92,8 @@ body {
             font-size: 16px;
             display: flex;
             padding: 0px;
+            margin: 1px;
+            padding-left: 3px;
 
             li {
                 list-style: none;
@@ -282,10 +285,12 @@ body {
             display: flex;
 
             width: 500px;
+
             .guestImgClick,
             .guestImg {
                 width: 245px;
             }
+
             .guestImgClick {
                 cursor: pointer;
             }
@@ -369,6 +374,23 @@ body {
     background-image: linear-gradient(rgb(222, 211, 211), rgb(194, 213, 194));
     font-family: Tahoma, Geneva, Verdana, sans-serif;
 
+    .epNumber {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 1px;
+    }
+
+    .epName {
+        margin: 1px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        width: 300px;
+    }
+
+    p {
+        margin: 1px;
+    }
 
     .episName {
         width: 200px;
@@ -403,9 +425,15 @@ body {
         border-radius: 19px;
 
     }
+
     p {
         width: 100px;
     }
+}
+.footer {
+    text-align: center;
+    font-family:Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
 }
 
 @media screen and (max-width: 500px) {
@@ -413,6 +441,7 @@ body {
         width: 355px;
         font-size: 20px;
     }
+
     .showActor {
         display: block;
         width: 355px;
@@ -602,6 +631,15 @@ body {
             width: 200px;
         }
 
+        .epNumber {
+            font-size: 16px;
+        }
+
+        .epName {
+            font-size: 18px;
+            width: 350px;
+        }
+
         .summaryEpis {
             width: 345px;
         }
@@ -634,6 +672,7 @@ body {
     .showMain {
 
         width: 350px;
+
         .bigImg {
             width: 340px;
         }
@@ -669,6 +708,9 @@ body {
         .genres {
             font-size: 14px;
         }
+    }
+    .footer {
+        font-size: 14px;
     }
 
 }

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // import Loader from "./Loader";
 import { useParams } from "react-router-dom";
-import SearchPlaceTv from "../search/SearchPlaceTv";
+
 import ActorCharacters from "./ActorCharacters";
 import ActorCharacterShow from "./ActorCharacterShow";
 
@@ -81,7 +81,7 @@ const DetailsActor = () => {
 
     return (
         <>
-            <SearchPlaceTv />
+         
             <div className="showActor">
                 <div className="holdImg">
                     <img className="imgShow"

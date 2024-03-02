@@ -13,7 +13,7 @@ const SezoneList = (props) => {
                             <table>
                                 <tbody>
                                     <tr>
-                                        <td className="sezonNum">{sezon.number}</td>
+                                        <td className="sezonNum">S{sezon.number}</td>
                                         <td className="sezonDate">
                                             {sezon.premiereDate + " to " + sezon.endDate}</td>
                                         <td>{sezon.episodeOrder} ep.</td>

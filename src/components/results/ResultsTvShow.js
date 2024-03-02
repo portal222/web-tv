@@ -2,8 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
 
 import GlobalContext from "../GlobalContext";
-import Footers from "../Footers";
-import SearchPlaceTv from "../search/SearchPlaceTv";
 import ResultsTvTime from "./ResultsTvTime";
 
 // import ResultsCollapsableTv from "./ResultsCollapsabl?eTv";
@@ -63,7 +61,7 @@ const ResultsTvShow = () => {
 
     return (
         <>
-            <SearchPlaceTv />
+         
             <table className="showMain">
 
 

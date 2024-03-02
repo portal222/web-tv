@@ -19,7 +19,7 @@ const EpisodeList = (props) => {
         try {
             const response = await axios.get(url);
 
-            const data = response.data;
+            const data = response.data.reverse();
 
             console.log("iz episodeList lista", data)
             setEpisode(data);
@@ -34,10 +34,11 @@ const EpisodeList = (props) => {
                 <div>
                     <div className="sezoneList">
                         <div >
-                            <p>{epis.number + " " + epis.airdate}</p>
+                            <p className="epNumber">E{epis.number}</p>
+                            <p> {epis.airdate}</p>
                           
                             </div>
-                        <div className="sezonDate">{epis.name}</div>
+                        <div className="epName">{epis.name}</div>
                         <div>
                             <img className="imgSezons"
                                 src={epis.image?.medium} />
