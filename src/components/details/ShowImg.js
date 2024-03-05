@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useParams } from "react-router-dom";
-import SearchPlaceTv from "../search/SearchPlaceTv";
+
 
 
 
@@ -39,7 +39,7 @@ const ShowImg = () => {
 
     return (
         <>
-            <SearchPlaceTv />
+          
             <div
                 className="showMain">
                 {imageShow.map((image) => (

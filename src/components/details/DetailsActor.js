@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 
 import ActorCharacters from "./ActorCharacters";
 import ActorCharacterShow from "./ActorCharacterShow";
+import DetailsEpisode from "./DetailsEpisode";
 
 
 
@@ -21,6 +22,7 @@ const DetailsActor = () => {
     const [error, setError] = useState(null);
     const [person, setPerson] = useState([]);
     const [cast, setCast] = useState([]);
+    const [guestCast, setGuestCast] = useState([]);
 
 
 
@@ -64,6 +66,7 @@ const DetailsActor = () => {
 
             setPerson(data);
             setCast(data._embedded.castcredits)
+            setGuestCast(dataCast);
 
 
             // setIsLoading(false);
@@ -81,7 +84,7 @@ const DetailsActor = () => {
 
     return (
         <>
-         
+
             <div className="showActor">
                 <div className="holdImg">
                     <img className="imgShow"
@@ -115,7 +118,7 @@ const DetailsActor = () => {
                                     TvMaze</a>
                             </td>
                         </tr>
-                
+
                         <tr className="showCast">
                             <td>Show name</td>
                             <td>Cast</td>
@@ -138,6 +141,35 @@ const DetailsActor = () => {
                     </tbody>
                 </table>
             </div>
+            <div>
+                <p className="guestCast">Guest Cast</p>
+            </div>
+
+
+            {guestCast.map((guest) => (
+                <div className="showActor">
+                    <div >
+                        <DetailsEpisode episodeId={guest._embedded.episode.id} />
+                        <div>
+                            <p>{guest._embedded.episode.name}</p>
+                            <p>{guest._embedded.episode.airdate}</p>
+                        </div>
+                    </div>
+                    <div>
+
+                        <div className="forSummary">
+                            <td> <img src={guest._embedded.episode.image?.original} className="imgEpisode" /> </td>
+                            <td className="summary">{guest._embedded.episode.summary?.replace('<p>', '').replace('</p>', '').replace('<br', '').replace('<b>', '').replace('</b>', '')
+                                .replace('<i>', '').replace('</i>', '').replace('<p>', '').replace('</p>', '').replace('<br />', '')}</td>
+                        </div>
+                    </div>
+                </div>
+            ))}
+
+
+
+
+
         </>
     )
 

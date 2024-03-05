@@ -1,0 +1,54 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+
+const DetailsEpisode = (props) => {
+
+    const [error, setError] = useState(null);
+    const [episode, setEpisode] = useState([]);
+    const [number, setNumber] = useState([]);
+
+    const navigate = useNavigate();
+
+
+    useEffect(() => {
+getEpisode();
+    }, [])
+
+    const getEpisode = async () => {
+
+const url = `https://api.tvmaze.com/episodes/${props.episodeId}?embed=show`;
+
+try {
+    const response = await axios.get(url);
+
+    const data = response.data;
+    console.log("pojedinacna epizoda detalji", data);
+    setEpisode(data._embedded.show);
+    setNumber(data);
+} catch (err) {
+    setError(err);
+}
+    };
+
+    const clickShow = (showId) => {
+        const LinkTo = `/showDetails/${showId}`;
+        navigate(LinkTo);
+    }
+
+return (
+<>
+<tr>
+    <td className="clickShow"
+    onClick={() => clickShow(episode.id)}>
+        {episode.name}</td>
+    <td className="number">
+       S{number.season + " E" + number.number}</td>
+</tr>
+</>
+
+)
+
+}
+export default DetailsEpisode;
