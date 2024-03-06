@@ -1,30 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-
-// import Loader from "./Loader";
 import { useParams } from "react-router-dom";
-
 import ActorCharacters from "./ActorCharacters";
 import ActorCharacterShow from "./ActorCharacterShow";
 import DetailsEpisode from "./DetailsEpisode";
-
-
-
-
-
-
-
-
-
-
+import BackToTop from "../BackToTop";
 
 const DetailsActor = () => {
     const [error, setError] = useState(null);
     const [person, setPerson] = useState([]);
     const [cast, setCast] = useState([]);
     const [guestCast, setGuestCast] = useState([]);
-
-
 
     const params = useParams()
     const actorId = params.actorId;
@@ -48,17 +34,9 @@ const DetailsActor = () => {
             const responseCrow = await axios.get(urlCrow);
             const responseCast = await axios.get(urlCast);
 
-
-
-
-
             const data = response.data;
             const dataCrow = responseCrow.data;
             const dataCast = responseCast.data;
-
-
-
-
 
             console.log("detalji actor glumca", data);
             console.log("detalji crow glumca", dataCrow);
@@ -68,29 +46,18 @@ const DetailsActor = () => {
             setCast(data._embedded.castcredits)
             setGuestCast(dataCast);
 
-
-            // setIsLoading(false);
-            // setResults(data.length);
-
-
         } catch (err) {
             setError(err);
-
         }
-
     };
-
-
 
     return (
         <>
-
             <div className="showActor">
                 <div className="holdImg">
                     <img className="imgShow"
                         src={person.image?.medium} />
                 </div>
-
                 <table >
                     <tbody>
                         <tr>
@@ -113,38 +80,30 @@ const DetailsActor = () => {
                         </tr>
                         <tr>
                             <td colSpan={2}>
-
                                 <a href={person.url} target="_blank">
                                     TvMaze</a>
                             </td>
                         </tr>
-
                         <tr className="showCast">
                             <td>Show name</td>
                             <td>Cast</td>
                         </tr>
                         {cast.map((dataCast) => (
                             <tr >
-
                                 <td className="borderBotom">
-
                                     <ActorCharacterShow show={dataCast._links.show.href} />
                                 </td>
-
                                 <td className="borderBotom">
                                     <ActorCharacters character={dataCast._links.character.href} />
                                 </td>
                             </tr>
-
                         ))}
-
                     </tbody>
                 </table>
             </div>
             <div>
                 <p className="guestCast">Guest Cast</p>
             </div>
-
 
             {guestCast.map((guest) => (
                 <div className="showActor">
@@ -165,14 +124,8 @@ const DetailsActor = () => {
                     </div>
                 </div>
             ))}
-
-
-
-
-
+            <BackToTop />
         </>
     )
-
-
 };
 export default DetailsActor;

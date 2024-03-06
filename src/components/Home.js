@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-import ResultsTvTime from "./results/ResultsTvTime";
+import BackToTop from "./BackToTop";
 
 
 
@@ -71,7 +71,7 @@ const Home = () => {
 
     return (
         <>
-        <div className="showActor">Serije na dan: {vreme.date}</div>
+            <div className="showActor">Serije na dan: {vreme.date}</div>
             <div className="gridTv">
                 {serije.map((serija) => (
                     <>
@@ -82,7 +82,7 @@ const Home = () => {
                             <p className="showName"
                                 onClick={() => clickShow(serija._embedded.show.id)}>
                                 {serija._embedded.show.name}</p>
-                                <p className="genresTv">S{serija.season}  E{serija.number}</p>
+                            <p className="genresTv">S{serija.season}  E{serija.number}</p>
                             <p className="genresTv">{serija._embedded.show.language + " " + serija._embedded.show.type}</p>
 
                             <ul className="genresTv">
@@ -100,6 +100,7 @@ const Home = () => {
                     </>
                 ))}
             </div>
+            <BackToTop />
         </>
     )
 

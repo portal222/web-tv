@@ -1,16 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
-
 import GlobalContext from "../GlobalContext";
 import ResultsTvTime from "./ResultsTvTime";
-// import ResultsActorCelebs from "./ResultsActorCelebs";
 import { useNavigate } from "react-router-dom";
-
-
-
-
-
-
+import BackToTop from "../BackToTop";
 
 const ResultsTvActors = () => {
     const [error, setError] = useState(null);
@@ -18,9 +11,6 @@ const ResultsTvActors = () => {
     const [results, setResults] = useState([]);
 
     const navigate = useNavigate();
-
-
-
 
     const globalCtx = useContext(GlobalContext);
     const searchStringValue = globalCtx.searchStringValue;
@@ -38,42 +28,25 @@ const ResultsTvActors = () => {
 
             const data = response.data;
 
-
-
-
             console.log("rezultat glumci tvShowActors", data)
 
             setTvShow(data);
             setResults(data.length);
         } catch (err) {
             setError(err);
-
         }
-
     };
 
     const clickActor = (actorId) => {
         const LinkTo = `/actorDetails/${actorId}`;
         navigate(LinkTo);
-
     }
-
 
     return (
         <>
-      
             <table className="showMain">
-
-
-
-
                 {tvShow.map((dataObj) => (
-
-
-
-                    <tbody key={dataObj.person.id}
-                    >
-
+                    <tbody key={dataObj.person.id}>
                         <tr>
                             <td rowSpan={5} className="holdImg">
                                 <img className="imgShow"
@@ -91,21 +64,18 @@ const ResultsTvActors = () => {
                             </td>
                             <td >
                                 {dataObj.person.gender}
-
                             </td>
                         </tr>
                         <tr>
                             <td className="language">{dataObj.person.birthday}</td>
                             <td className="language">{dataObj.person.deathday}</td>
                         </tr>
-
                         <tr>
                             <td colSpan={2}>
 
                                 <a href={dataObj.person.url} target="_blank">
                                     TvMaze</a>
                             </td>
-
                         </tr>
                         <tr>
                             <ResultsTvTime datum={dataObj.person.updated} />
@@ -114,13 +84,10 @@ const ResultsTvActors = () => {
                         <tr>
                             <td colSpan={3}><hr></hr></td>
                         </tr>
-
                     </tbody>
-
                 ))}
-
             </table >
-
+            <BackToTop />
         </>
     );
 };

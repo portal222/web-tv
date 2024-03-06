@@ -1,24 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-
-// import Loader from "./Loader";
 import { useParams } from "react-router-dom";
-
 import ResultsTvTime from "../results/ResultsTvTime";
 import { useNavigate } from "react-router-dom";
 import SezoneList from "./SezoneList";
 import EpisodeNumber from "./EpisodeNumber";
-// import ShowImg from "./ShowImg";
-
-
-// import ActorCharacter from "./ActorCharacters";
-// import ActorCharacterShow from "./ActorCharacterShow";
-
-
-
-
-
-
+import BackToTop from "../BackToTop";
 
 
 const DetailsTvShow = () => {
@@ -44,61 +31,37 @@ const DetailsTvShow = () => {
 
     const getShow = async () => {
 
-        // const url = ` https://api.tvmaze.com/people/${actorId}?embed=castcredits`;
-        // const url = ` https://api.tvmaze.com/people/${actorId}`;
         const url = `https://api.tvmaze.com/shows/${showId}?embed=cast`
         const urlEp = `https://api.tvmaze.com/shows/${showId}/episodes`
         const urlSez = `https://api.tvmaze.com/shows/${showId}/seasons`
-        // const urlImg = `https://api.tvmaze.com/shows/${showId}/images`
-
-
+     
         try {
             const response = await axios.get(url);
             const responseEp = await axios.get(urlEp);
             const responseSez = await axios.get(urlSez);
-            // const responseImg = await axios.get(urlImg);
-
-
-
-
+          
 
             const data = response.data;
             const dataEp = responseEp.data;
             const dataSez = responseSez.data.reverse();
-            // const dataImg = responseImg.data;
-
-
-
-
-
+           
             console.log("detalji show-a", data);
             console.log("detalji epizoda", dataEp);
             console.log("detalji Sezona", dataSez);
-            // console.log("slike showa", dataImg);
-
+          
             setShow(data);
             setCast(data._embedded.cast);
-            setSezons(dataSez);
-            // setImages(dataImg);
-            // setCast(data._embedded.castcredits)
-
-
-            // setIsLoading(false);
-            // setResults(data.length);
-
+            setSezons(dataSez)      
 
         } catch (err) {
             setError(err);
-
         }
-
     };
 
 
     const clickPerson = (actorId) => {
         const LinkTo = `/actorDetails/${actorId}`;
         navigate(LinkTo);
-
     }
 
     const clickImg = (images) => {
@@ -106,20 +69,14 @@ const DetailsTvShow = () => {
         navigate(LinkTo);
     }
 
-
-
     return (
         <>
-         
             <div className="showActor">
-
-
                 <div
                     className="holdImg">
                     <img className="imgShow"
                         src={show.image?.original} />
                 </div>
-
                 <table>
                     <tbody>
                         <tr>
@@ -141,8 +98,6 @@ const DetailsTvShow = () => {
                                     <li>{show.genres?.[2]}</li>
                                     <li>{show.genres?.[3]}</li>
                                 </ul>
-
-
                             </td>
                         </tr>
                         <tr>
@@ -151,7 +106,6 @@ const DetailsTvShow = () => {
                         </tr>
 
                         <EpisodeNumber sezones={sezons} />
-
 
                         <tr>
                             <td>Premiered:{" " + show.premiered}</td>
@@ -225,14 +179,8 @@ const DetailsTvShow = () => {
 
                 </tbody>
             </table>
-
-
-
-
-            {/* <ShowImg seriasImg={images} /> */}
             <SezoneList sezone={sezons} />
-
-
+            <BackToTop />
         </>
     )
 

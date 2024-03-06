@@ -1,17 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
-
 import GlobalContext from "../GlobalContext";
 import ResultsTvTime from "./ResultsTvTime";
-
-// import ResultsCollapsableTv from "./ResultsCollapsabl?eTv";
 import { useNavigate } from "react-router-dom";
-
-
-
-
-
-
+import BackToTop from "../BackToTop";
 
 const ResultsTvShow = () => {
     const [error, setError] = useState(null);
@@ -20,10 +12,6 @@ const ResultsTvShow = () => {
     const [open, setOpen] = useState(false);
 
     const navigate = useNavigate();
-
-
-
-
 
     const globalCtx = useContext(GlobalContext);
     const searchStringValue = globalCtx.searchStringValue;
@@ -36,7 +24,6 @@ const ResultsTvShow = () => {
     const getTvShow = async (searchStringValue) => {
         const url = `https://api.tvmaze.com/search/shows?q=${searchStringValue}`;
 
-
         try {
             const response = await axios.get(url);
 
@@ -48,32 +35,19 @@ const ResultsTvShow = () => {
             setResults(data.length);
         } catch (err) {
             setError(err);
-
         }
-
     };
 
     const clickShow = (showId) => {
         const LinkTo = `/showDetails/${showId}`;
         navigate(LinkTo);
-
     }
 
     return (
         <>
-         
             <table className="showMain">
-
-
-
-
                 {tvShow.map((dataObj) => (
-
-
-
-                    <tbody key={dataObj.show.id}
-                    >
-
+                    <tbody key={dataObj.show.id}>
                         <tr>
                             <td rowSpan={7} className="holdImg">
                                 <img className="imgShow"
@@ -86,32 +60,28 @@ const ResultsTvShow = () => {
                             </td>
                         </tr>
                         <tr>
-                           
                             <td >
                                 <ul className="genres">
                                     <li>{dataObj.show.genres?.[0]}</li>
                                     <li>{dataObj.show.genres?.[1]}</li>
                                     <li>{dataObj.show.genres?.[2]}</li>
-                                    <li>{dataObj.show.genres?.[3]}</li>
+                                    {/* <li>{dataObj.show.genres?.[3]}</li> */}
                                 </ul>
                             </td>
                         </tr>
                         <tr>
                             <td className="language">{dataObj.show.language}</td>
-                    
                         </tr>
                         <tr>
                             <td>Premiered:{" " + dataObj.show.premiered}</td>
-                          
                         </tr>
                         <tr>
-                            <td  className="summary">
+                            <td className="summaryRes">
                                 {dataObj.show.summary?.replace('<p>', '').replace('</p>', '').replace('<br', '').replace('<b>', '').replace('</b>', '')
                                     .replace('<i>', '').replace('</i>', '').replace('<p>', '').replace('</p>', '').replace('<br />', '')}
                             </td>
                         </tr>
                         <tr>
-                          
                             <ResultsTvTime datum={dataObj.show.updated} />
                         </tr>
                         <tr>
@@ -119,41 +89,13 @@ const ResultsTvShow = () => {
                                 <a href={dataObj.show.url} target="_blank">TvMaze</a>
                             </td>
                         </tr>
-                        {/* <ResultsCollapsableTv idNumber={dataObj.show.id} /> */}
-                        {/* <tr>
-                            <td colSpan={3}>
-                                <IconButton
-                                    aria-label='expand row'
-                                    size='small'
-                                    onClick={() => setOpen(!open)}
-                                >
-                                    {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                                </IconButton> Cast
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colSpan={3}>
-                                <Collapse in={open} timeout='auto' unmountOnExit>
-                                    <Box sx={{ margin: 0 }}>
-                                        <CollapsableTvSingl
-
-                                            idNumber={tvShow.id}
-                                        />
-
-                                    </Box>
-                                </Collapse>
-                            </td>
-                        </tr> */}
                         <tr>
                             <td colSpan={3}><hr></hr></td>
                         </tr>
-
                     </tbody>
-
                 ))}
-
             </table >
-
+            <BackToTop />
         </>
     );
 };

@@ -77,6 +77,7 @@ body {
         text-align: center;
 
         img {
+            padding: 3px;
             width: 198px;
             cursor: pointer;
 
@@ -84,6 +85,7 @@ body {
         }
 
         .showName {
+            max-width: 197px;
             font-size: 20px;
             font-weight: bold;
             cursor: pointer;
@@ -259,6 +261,16 @@ body {
         border-radius: 19px;
     }
 
+    .summaryRes {
+        margin-left: 5px;
+        max-width: 650px;
+        min-width: 650px;
+        padding: 10px 15px;
+        font-size: 24px;
+        border: 1px solid rgb(121, 121, 121);
+        border-radius: 19px;
+    }
+
     .language {
         padding: 2px 10px;
         font-weight: bold;
@@ -273,6 +285,7 @@ body {
     .genres {
         display: flex;
         font-size: 20px;
+        margin: 0;
 
         list-style: none;
         padding: 0px 5px 0px 2px;
@@ -337,15 +350,8 @@ body {
             }
         }
 
-        .imgCast {
-            // display: flex;
-            // flex-direction: row;
+        .imgCast {       
             min-width: 240px;
-
-
-            //  padding-right: 5px;
-            // justify-content: end;
-
             p {
                 cursor: pointer;
 
@@ -464,6 +470,28 @@ body {
     font-size: 18px;
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 300px;
+
+    color: #84867b;
+    cursor: pointer;
+    border-radius: 5px;
+
+    .arrowup {
+        align-items: center;
+
+        width: 30px;
+        height: 25px;
+        color: #7a9c99ac;
+        background-color: rgba(222, 211, 211, 0.43);
+
+        border-radius: 5px;
+        border: solid 3px #95beba7c;
+    }
+}
+
 @media screen and (max-width: 500px) {
     .searchMain {
         width: 355px;
@@ -571,32 +599,28 @@ body {
         .gridItem {
 
 
-            max-width: 110x;
+            max-width: 105x;
             padding: 0px;
 
-
-
             img {
-                width: 108px;
-                cursor: pointer;
-
-
+                padding: 2px;
+                width: 95px;
             }
 
             .showName {
-                font-size: 18px;
-
+                max-width: 95px;
+                font-size: 12px;
             }
 
             .genresTv {
                 // max-width: 105px;
-                font-size: 14px;
+                font-size: 11px;
                 display: flex;
 
 
                 li {
                     list-style: none;
-                    padding-right: 3px;
+                    padding-right: 2px;
                 }
             }
         }
@@ -728,7 +752,7 @@ body {
 
     .showMain {
 
-        width: 350px;
+        width: 355px;
 
         .bigImg {
             width: 340px;
@@ -750,15 +774,30 @@ body {
 
         a,
         .language {
-            min-width: 104px;
-            max-width: 104px;
+            min-width: 95px;
+            max-width: 95px;
             font-size: 14px;
+        }
+
+        .clickShow {
+            font-size: 22px;
         }
 
         .summary {
             max-width: 100px;
             font-size: 14px;
             border-radius: 5px;
+        }
+
+        .summaryRes {
+            margin-left: 3px;
+            padding: 8px 3px;
+            max-width: 100px;
+            min-width: 100px;
+            font-size: 14px;
+            border-radius: 5px;
+
+
         }
 
         td,
@@ -769,6 +808,9 @@ body {
 
     .footer {
         font-size: 14px;
+    }
+    .back-to-top {
+        right: 20px;
     }
 
 }
