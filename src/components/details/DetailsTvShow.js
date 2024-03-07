@@ -150,9 +150,9 @@ const DetailsTvShow = () => {
                                             <td >
                                                 <div className="guest">
                                                     <img className="guestImg"
-                                                        src={person.character?.image?.original} alt="no picture" />
+                                                        src={person.character?.image?.medium} alt="no picture" />
                                                     <img className="guestImgClick"
-                                                        src={person.person?.image?.original} alt="no picture"
+                                                        src={person.person?.image?.medium} alt="no picture"
                                                         onClick={() => clickPerson(person.person.id)} />
 
                                                 </div>

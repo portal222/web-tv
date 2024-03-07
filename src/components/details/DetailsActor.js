@@ -115,7 +115,7 @@ const DetailsActor = () => {
                     <div>
 
                         <div className="forSummary">
-                            <td> <img src={guest._embedded.episode.image?.original} className="imgEpisode" /> </td>
+                            <td> <img src={guest._embedded.episode.image?.medium} className="imgEpisode" /> </td>
                             <td className="summary">{guest._embedded.episode.summary?.replace('<p>', '').replace('</p>', '').replace('<br', '').replace('<b>', '').replace('</b>', '')
                                 .replace('<i>', '').replace('</i>', '').replace('<p>', '').replace('</p>', '').replace('<br />', '')}</td>
                         </div>
