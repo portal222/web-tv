@@ -71,7 +71,7 @@ const Home = () => {
 
     return (
         <>
-            <div className="showActor">Serije na dan: {vreme.date}</div>
+            <div className="showActor">Series per day: {vreme.date}</div>
             <div className="gridTv">
                 {serije.map((serija) => (
                     <>

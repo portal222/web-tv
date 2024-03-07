@@ -41,10 +41,11 @@ const EpisodeList = (props) => {
                         <div className="epName">{epis.name}</div>
                         <div>
                             <img className="imgSezons"
-                                src={epis.image?.medium} />
+                                src={epis.image?.original} />
                         </div>
                         <div className="summEpis">{epis.summary?.replace('<p>', '').replace('</p>', '').replace('<br>', '').replace('</br>', '')
-                        .replace('<i>', '').replace('</i>', '').replace('<i>', '').replace('</i>', '')}</div>
+                        .replace('<i>', '').replace('</i>', '').replace('<b>', '').replace('</b>', '').replace('<i>', '').replace('</i>', '').replace('<p>', '').replace('</p>', '')
+                        .replace('<b>', '').replace('</b>', '')}</div>
 
                     </div>
 

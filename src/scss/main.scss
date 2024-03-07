@@ -46,10 +46,7 @@ body {
 
             }
         }
-
     }
-
-
 }
 
 .guestCast {
@@ -57,8 +54,9 @@ body {
     width: 1200px;
     text-align: left;
     padding-left: 20px;
-    background-color: rgb(206, 206, 206);
-    font-size: 24px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #cccccc;
+    font-size: 20px;
 }
 
 .gridTv {
@@ -80,6 +78,9 @@ body {
             padding: 3px;
             width: 198px;
             cursor: pointer;
+            &:hover {
+           background-color: chocolate;
+            }
 
 
         }
@@ -90,6 +91,7 @@ body {
             font-weight: bold;
             cursor: pointer;
             margin: 1px;
+            color: #0d47a1;
 
             &:hover {
                 color: chocolate;
@@ -149,7 +151,7 @@ body {
 
     .wrap {
 
-        color: blue;
+        color: #0d47a1;
         font-size: 18px;
         font-weight: bold;
         cursor: pointer;
@@ -185,6 +187,7 @@ body {
         font-size: 26px;
         cursor: pointer;
         width: 300px;
+        color: #0d47a1;
 
         &:hover {
             color: chocolate;
@@ -192,6 +195,7 @@ body {
     }
 
     .showCast {
+        font-size: 20px;
         border-bottom: 2px solid rgb(160, 159, 159);
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         background-color: #cccccc;
@@ -231,26 +235,21 @@ body {
     .airDate {
         width: 70px;
     }
-
-
-
     .showNameActor {
         padding: 2px 30px;
         font-weight: bold;
         font-size: 28px;
         cursor: pointer;
+        color: #0d47a1;
 
         &:hover {
             color: chocolate;
         }
-
     }
-
     .forSummary {
         display: flex;
         flex-direction: row;
     }
-
     .summary {
         margin-left: 5px;
         max-width: 395px;
@@ -260,7 +259,6 @@ body {
         border: 1px solid rgb(121, 121, 121);
         border-radius: 19px;
     }
-
     .summaryRes {
         margin-left: 5px;
         max-width: 650px;
@@ -270,18 +268,15 @@ body {
         border: 1px solid rgb(121, 121, 121);
         border-radius: 19px;
     }
-
     .language {
         padding: 2px 10px;
         font-weight: bold;
         min-width: 335px;
         max-width: 335px;
     }
-
     a {
         padding-left: 8px;
     }
-
     .genres {
         display: flex;
         font-size: 20px;
@@ -289,19 +284,10 @@ body {
 
         list-style: none;
         padding: 0px 5px 0px 2px;
-        // border-bottom: 1px solid gray;
-
-        li {
+         li {
             padding-right: 5px;
         }
     }
-
-
-
-
-
-
-
     a {
         font-weight: bold;
         font-size: 20px;
@@ -312,11 +298,7 @@ body {
             color: coral;
         }
     }
-
-
-
     .imgCastMain {
-        // margin: auto;
         max-width: 1180px;
         overflow-y: hidden;
         overflow-x: scroll;
@@ -324,16 +306,16 @@ body {
         .guest {
             display: flex;
 
-            width: 500px;
+            width: 420px;
 
             .guestImgClick,
             .guestImg {
-                width: 245px;
+                width: 200px;
             }
 
             .guestImgClick {
                 cursor: pointer;
-            }
+                       }
         }
 
         .guestName {
@@ -343,6 +325,7 @@ body {
             .click {
                 cursor: pointer;
                 padding-right: 30px;
+                color: #0d47a1;
 
                 &:hover {
                     color: chocolate;
@@ -499,60 +482,47 @@ body {
     }
 
     .guestCast {
-
         width: 345px;
-
         padding-left: 10px;
-
-        font-size: 14px;
+        font-size: 16px;
     }
-
     .showActor {
         display: block;
         width: 355px;
         font-size: 14px;
         padding: 5px;
-
         .holdImg {
             padding: 2px;
-
             .imgShow {
                 max-width: 345px;
                 min-width: 345px;
             }
         }
-
         .forSummary {
             flex-direction: column;
         }
-
         .summary {
             font-size: 18px;
         }
-
         a {
             font-size: 16px;
         }
-
         .language {
             padding: 1px 4px;
             max-width: 150px;
             min-width: 150px;
         }
-
         .showCast {
             max-width: 350px;
+            font-size: 16px;
         }
-
         .clickShow {
             font-size: 18px;
             max-width: 150px;
-
             .genres {
                 font-size: 16px;
             }
         }
-
         .showName {
             padding: 1px 5px;
 
@@ -604,7 +574,7 @@ body {
 
             img {
                 padding: 2px;
-                width: 95px;
+                width: 115px;
             }
 
             .showName {

@@ -24,8 +24,6 @@ const DetailsActor = () => {
     const getPerson = async () => {
 
         const url = ` https://api.tvmaze.com/people/${actorId}?embed=castcredits`;
-        // const url = ` https://api.tvmaze.com/people/${actorId}`;
-        // const urlCrow =`https://api.tvmaze.com/people/${actorId}/crewcredits?embed=show`
         const urlCrow = `https://api.tvmaze.com/people/${actorId}/crewcredits`
         const urlCast = `https://api.tvmaze.com/people/${actorId}/guestcastcredits?embed=episode`
 
@@ -56,7 +54,7 @@ const DetailsActor = () => {
             <div className="showActor">
                 <div className="holdImg">
                     <img className="imgShow"
-                        src={person.image?.medium} />
+                        src={person.image?.original} />
                 </div>
                 <table >
                     <tbody>

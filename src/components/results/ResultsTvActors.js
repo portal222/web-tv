@@ -80,8 +80,7 @@ const ResultsTvActors = () => {
                         <tr>
                             <ResultsTvTime datum={dataObj.person.updated} />
                         </tr>
-                        {/* <ResultsActorCelebs celebName={dataObj.person?.name}/> */}
-                        <tr>
+                                        <tr>
                             <td colSpan={3}><hr></hr></td>
                         </tr>
                     </tbody>

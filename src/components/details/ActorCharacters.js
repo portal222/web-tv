@@ -31,7 +31,7 @@ const ActorCharacter = (props) => {
     return (
         <>
             <div>
-                <img src={persons.image?.medium} />
+                <img src={persons.image?.original} />
                 <p>
                     {persons.name}</p>
             </div>
