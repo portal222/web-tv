@@ -24,7 +24,7 @@ try {
     const response = await axios.get(url);
 
     const data = response.data;
-    console.log("pojedinacna epizoda detalji", data);
+
     setEpisode(data._embedded.show);
     setNumber(data);
 } catch (err) {

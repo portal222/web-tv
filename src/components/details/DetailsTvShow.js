@@ -112,9 +112,7 @@ const DetailsTvShow = () => {
                             <td>Ended:{" " + show.ended}</td>
                         </tr>
                         <tr>
-                            <td colSpan={3} className="summary">
-                                {show.summary?.replace('<p>', '').replace('</p>', '').replace('<b>', '').replace('</b>', '')
-                                    .replace('<i>', '').replace('</i>', '').replace('<p>', '').replace('</p>', '').replace('<br />', '').replace('<br />', '')}
+                            <td colSpan={3} className="summary"  dangerouslySetInnerHTML={{ __html: show.summary }}>              
                             </td>
                         </tr>
                         <tr>

@@ -65,7 +65,7 @@ const ResultsTvShow = () => {
                                     <li>{dataObj.show.genres?.[0]}</li>
                                     <li>{dataObj.show.genres?.[1]}</li>
                                     <li>{dataObj.show.genres?.[2]}</li>
-                                    {/* <li>{dataObj.show.genres?.[3]}</li> */}
+                            
                                 </ul>
                             </td>
                         </tr>
@@ -76,9 +76,7 @@ const ResultsTvShow = () => {
                             <td>Premiered:{" " + dataObj.show.premiered}</td>
                         </tr>
                         <tr>
-                            <td className="summaryRes">
-                                {dataObj.show.summary?.replace('<p>', '').replace('</p>', '').replace('<br', '').replace('<b>', '').replace('</b>', '')
-                                    .replace('<i>', '').replace('</i>', '').replace('<p>', '').replace('</p>', '').replace('<br />', '')}
+                            <td className="summaryRes" dangerouslySetInnerHTML={{ __html: dataObj.show.summary }}>
                             </td>
                         </tr>
                         <tr>

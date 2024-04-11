@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import Box from '@mui/material/Box';
-
-
-
 import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -34,7 +31,6 @@ const ResultsCollapsableTv = (props) => {
                                 <Collapse in={open} timeout='auto' unmountOnExit>
                                     <Box sx={{ margin: 0 }}>
                                         <CollapsableTvSingl
-
                                             idSeries={props.idNumber}
                                         />
 

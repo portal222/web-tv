@@ -29,10 +29,11 @@ const SezoneList = (props) => {
 
 
 
-                        <div className="summEpis"
+                      <div className="summEpis"
                         >{sezon.summary?.replace('<p>', '').replace('</p>', '').replace('<b>', '').replace('</b>', '')
                             .replace('<i>', '').replace('</i>', '').replace('<i>', '').replace('</i>', '')}
                         </div>
+                       
                     </div>
                     <EpisodeList sezonId={sezon.id} />
 
