@@ -21,34 +21,35 @@ const GuestCaracter = (props) => {
             <table className="showActor">
                 <tbody>
                     <tr>
-                        <td colSpan={5}
-                            className="imgCastMain">
-                            <table>
-                                <tbody>
-                                    <tr >
-                                        {props.embedded.map((person) => (
-                                            <td >
-                                                <div className="guest">
-                                                    <img className="guestImg"
-                                                        src={person.character?.image?.medium} alt="no picture" />
-                                                    <img className="guestImgClick"
-                                                        src={person.person?.image?.medium} alt="no picture"
-                                                        onClick={() => clickPerson(person.person.id)} />
+                        <td colSpan={5}>
+                            <div className="imgCastMain">
+                                <table>
+                                    <tbody>
+                                        <tr >
+                                            {props.embedded.map((person) => (
+                                                <td >
+                                                    <div className="guest">
+                                                        <img className="guestImg"
+                                                            src={person.character?.image?.medium} alt="no picture" />
+                                                        <img className="guestImgClick"
+                                                            src={person.person?.image?.medium} alt="no picture"
+                                                            onClick={() => clickPerson(person.person.id)} />
 
-                                                </div>
+                                                    </div>
 
 
-                                                <div className="guestName">
-                                                    <p>{person.character?.name}</p>
-                                                    <p className="click"
-                                                        onClick={() => clickPerson(person.person.id)}>{person.person?.name}</p>
-                                                </div>
+                                                    <div className="guestName">
+                                                        <p>{person.character?.name}</p>
+                                                        <p className="click"
+                                                            onClick={() => clickPerson(person.person.id)}>{person.person?.name}</p>
+                                                    </div>
 
-                                            </td>
-                                        ))}
-                                    </tr>
-                                </tbody>
-                            </table>
+                                                </td>
+                                            ))}
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </td>
 
                     </tr>

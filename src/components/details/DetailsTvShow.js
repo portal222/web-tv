@@ -34,24 +34,24 @@ const DetailsTvShow = () => {
         const url = `https://api.tvmaze.com/shows/${showId}?embed=cast`
         const urlEp = `https://api.tvmaze.com/shows/${showId}/episodes`
         const urlSez = `https://api.tvmaze.com/shows/${showId}/seasons`
-     
+
         try {
             const response = await axios.get(url);
             const responseEp = await axios.get(urlEp);
             const responseSez = await axios.get(urlSez);
-          
+
 
             const data = response.data;
             const dataEp = responseEp.data;
             const dataSez = responseSez.data.reverse();
-           
+
             console.log("detalji show-a", data);
             console.log("detalji epizoda", dataEp);
             console.log("detalji Sezona", dataSez);
-          
+
             setShow(data);
             setCast(data._embedded.cast);
-            setSezons(dataSez)      
+            setSezons(dataSez)
 
         } catch (err) {
             setError(err);
@@ -112,7 +112,7 @@ const DetailsTvShow = () => {
                             <td>Ended:{" " + show.ended}</td>
                         </tr>
                         <tr>
-                            <td colSpan={3} className="summary"  dangerouslySetInnerHTML={{ __html: show.summary }}>              
+                            <td colSpan={3} className="summary" dangerouslySetInnerHTML={{ __html: show.summary }}>
                             </td>
                         </tr>
                         <tr>
@@ -139,38 +139,38 @@ const DetailsTvShow = () => {
             <table className="showActor">
                 <tbody>
                     <tr>
-                        <td colSpan={3}
-                            className="imgCastMain">
-                            <table>
-                                <tbody>
-                                    <tr >
-                                        {cast.map((person) => (
-                                            <td >
-                                                <div className="guest">
-                                                    <img className="guestImg"
-                                                        src={person.character?.image?.medium} alt="no picture" />
-                                                    <img className="guestImgClick"
-                                                        src={person.person?.image?.medium} alt="no picture"
-                                                        onClick={() => clickPerson(person.person.id)} />
+                        <td colSpan={3}>
 
-                                                </div>
+                            <div className="imgCastMain">
+                                <table>
+                                    <tbody>
+                                        <tr >
+                                            {cast.map((person) => (
+                                                <td >
+                                                    <div className="guest">
+                                                        <img className="guestImg"
+                                                            src={person.character?.image?.medium} alt="no picture" />
+                                                        <img className="guestImgClick"
+                                                            src={person.person?.image?.medium} alt="no picture"
+                                                            onClick={() => clickPerson(person.person.id)} />
+
+                                                    </div>
 
 
-                                                <div className="guestName">
-                                                    <p>{person.character?.name}</p>
-                                                    <p className="click"
-                                                        onClick={() => clickPerson(person.person.id)}>{person.person?.name}</p>
-                                                </div>
+                                                    <div className="guestName">
+                                                        <p>{person.character?.name}</p>
+                                                        <p className="click"
+                                                            onClick={() => clickPerson(person.person.id)}>{person.person?.name}</p>
+                                                    </div>
 
-                                            </td>
-                                        ))}
-                                    </tr>
-                                </tbody>
-                            </table>
+                                                </td>
+                                            ))}
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </td>
                     </tr>
-
-
                     <tr>
                         <td colSpan={3}><hr></hr></td>
                     </tr>
