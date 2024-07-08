@@ -71,7 +71,7 @@ const DetailsTvShow = () => {
 
     return (
         <>
-            <div className="showActor">
+            <div className="details">
                 <div
                     className="holdImg">
                     <img className="imgShow"

@@ -43,6 +43,16 @@ const ResultsTvShow = () => {
         navigate(LinkTo);
     }
 
+
+    if (results == 0) {
+        return (
+            <div className="showMain">
+                <br></br>
+              
+                <h3>Nothing found</h3>
+            </div>
+        )
+    }
     return (
         <>
             <table className="showMain">

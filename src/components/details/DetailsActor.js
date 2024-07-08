@@ -26,19 +26,29 @@ const DetailsActor = () => {
         const url = ` https://api.tvmaze.com/people/${actorId}?embed=castcredits`;
         const urlCrow = `https://api.tvmaze.com/people/${actorId}/crewcredits`
         const urlCast = `https://api.tvmaze.com/people/${actorId}/guestcastcredits?embed=episode`
+        const urlCelebs = `https://api.api-ninjas.com/v1/celebrity?name=${actorId}`;
 
         try {
             const response = await axios.get(url);
             const responseCrow = await axios.get(urlCrow);
             const responseCast = await axios.get(urlCast);
+            const responseCelebs = await axios.get(urlCelebs,
+                     {
+                    headers: {
+                        'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
+                    }
+                }
+            )
 
             const data = response.data;
             const dataCrow = responseCrow.data;
             const dataCast = responseCast.data;
+            const dataCelebs = responseCelebs.data;
 
             console.log("detalji actor glumca", data);
             console.log("detalji crow glumca", dataCrow);
             console.log("cast guestCast credits", dataCast);
+            console.log("api ninja celebs", dataCelebs);
 
             setPerson(data);
             setCast(data._embedded.castcredits)
@@ -51,7 +61,7 @@ const DetailsActor = () => {
 
     return (
         <>
-            <div className="showActor">
+            <div className="details">
                 <div className="holdImg">
                     <img className="imgShow"
                         src={person.image?.original} />

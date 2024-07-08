@@ -15,32 +15,15 @@ const Home = () => {
 
 
     useEffect(() => {
-        getVreme();
+      
         getTv();
     }, [])
 
-    const getVreme = async () => {
-        const urlTime = `https://api.api-ninjas.com/v1/worldtime?city=Novi sad`;
-        try {
-            const response = await axios.get(urlTime,
-                {
-                    headers: {
-                        'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
-                    }
-                }
-            );
-
-            const dataTime = response.data;
-            console.log("koliko je sati", dataTime);
-            setVreme(dataTime);
+ 
 
 
 
-        } catch (err) {
-            setError(err);
-
-        }
-    };
+ 
 
     const getTv = async () => {
 
@@ -71,7 +54,7 @@ const Home = () => {
 
     return (
         <>
-            <div className="showActor">Series per day: {vreme.date}</div>
+          
             <div className="gridTv">
                 {serije.map((serija) => (
                     <>

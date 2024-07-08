@@ -42,6 +42,16 @@ const ResultsTvActors = () => {
         navigate(LinkTo);
     }
 
+    if (results == 0) {
+        return (
+            <div className="showMain">
+                <br></br>
+              
+                <h3>Nothing found</h3>
+            </div>
+        )
+    }
+
     return (
         <>
             <table className="showMain">
@@ -49,7 +59,7 @@ const ResultsTvActors = () => {
                     <tbody key={dataObj.person.id}>
                         <tr>
                             <td rowSpan={5} className="holdImg">
-                                <img className="imgShow"
+                                <img className="imgActor"
                                     src={dataObj.person.image?.original} />
                             </td>
                             <td colSpan={2}

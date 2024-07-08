@@ -75,7 +75,7 @@ body {
 }
 
 .gridTv {
-    padding-top: 80px;
+    padding-top: 60px;
     margin: auto;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
@@ -130,9 +130,10 @@ body {
     }
 }
 
-.showActor {
-    display: flex;
-}
+// .showActor {
+//     display: flex;
+//     padding-top: 10px;
+// }
 
 .searchMain {
     margin: auto;
@@ -150,13 +151,15 @@ body {
 
 .showMain,
 .showActor {
+    // display: flex;
     margin: auto;
     width: 1200px;
 
     background-image: linear-gradient(rgb(222, 211, 211), rgb(194, 213, 194));
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
-    padding: 10px;
+    padding: 60px 10px 10px 10px;
+
 
     .borderBotom {
         border-bottom: 1px solid rgb(98, 112, 97);
@@ -185,8 +188,8 @@ body {
         width: 400px;
         max-width: 400px;
         max-height: 60px;
-        overflow-y: hidden;
-        overflow-y: scroll;
+
+        overflow-x: auto;
 
         p {
             margin: 3px 0px;
@@ -220,6 +223,7 @@ body {
 
     .holdImg {
         padding-right: 10PX;
+        vertical-align: top;
 
         .imgShow {
             margin-top: 2px;
@@ -227,6 +231,12 @@ body {
             max-width: 500px;
             border-radius: 10px;
             cursor: pointer;
+        }
+
+        .imgActor {
+            min-width: 350px;
+            max-width: 350px;
+
         }
     }
 
@@ -327,8 +337,8 @@ body {
 
     .imgCastMain {
         max-width: 1180px;
-        overflow: hidden;
-        overflow-x: scroll;
+
+        overflow-x: auto;
 
         .guest {
             display: flex;
@@ -411,6 +421,116 @@ body {
     }
 }
 
+.details {
+    display: flex;
+    margin: auto;
+    width: 1200px;
+
+    background-image: linear-gradient(rgb(222, 211, 211), rgb(194, 213, 194));
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    padding: 60px 10px 10px 10px;
+
+    .wrap {
+
+        color: #0d47a1;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            color: chocolate;
+        }
+    }
+
+    .holdImg {
+        padding-right: 10PX;
+        vertical-align: top;
+
+        .imgShow {
+            margin-top: 2px;
+            min-width: 500px;
+            max-width: 500px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+    .sezone {
+
+        padding-left: 6px;
+        font-size: 18px;
+        width: 400px;
+        max-width: 400px;
+        max-height: 60px;
+
+        overflow-x: auto;
+
+        p {
+            margin: 3px 0px;
+        }
+    }
+
+    .clickShow {
+        font-weight: bold;
+        font-size: 26px;
+        cursor: pointer;
+        width: 300px;
+        color: #0d47a1;
+
+        &:hover {
+            color: chocolate;
+        }
+    }
+
+    .showName {
+        padding: 2px 10px;
+        font-weight: bold;
+        font-size: 28px;
+    }
+
+    .summary {
+        margin-left: 5px;
+        max-width: 395px;
+        min-width: 395px;
+        padding: 10px 15px;
+        font-size: 24px;
+        border: 1px solid rgb(121, 121, 121);
+        border-radius: 19px;
+        vertical-align: top;
+    }
+
+    .language {
+        padding: 2px 10px;
+        font-weight: bold;
+        min-width: 335px;
+        max-width: 335px;
+    }
+
+    .genres {
+        display: flex;
+        font-size: 20px;
+        margin: 0;
+
+        list-style: none;
+        padding: 0px 5px 0px 2px;
+
+        li {
+            padding-right: 5px;
+        }
+    }
+
+    a {
+        font-weight: bold;
+        font-size: 20px;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            color: coral;
+        }
+    }
+}
+
 .sezoneList {
     display: flex;
     margin: auto;
@@ -479,6 +599,7 @@ body {
     text-align: center;
     font-family: Tahoma, Geneva, Verdana, sans-serif;
     font-size: 18px;
+    padding-top: 500px;
 }
 
 .back-to-top {
@@ -519,7 +640,8 @@ body {
         display: block;
         width: 355px;
         font-size: 14px;
-        padding: 5px;
+        padding: 20px 5px 5px 5px;
+        // padding-top: 300px;
 
         .holdImg {
             padding: 2px;
@@ -583,10 +705,81 @@ body {
 
         }
     }
+    .details {
+        display: block;
+        width: 355px;
+        font-size: 14px;
+        padding: 60px 5px 5px 5px;
+        // padding-top: 300px;
+
+        .holdImg {
+            padding: 2px;
+
+            .imgShow {
+                max-width: 345px;
+                min-width: 345px;
+            }
+        }
+
+        .forSummary {
+            flex-direction: column;
+        }
+
+        .summary {
+            font-size: 18px;
+            max-width: 330px;
+            min-width: 330px;
+        }
+
+        a {
+            font-size: 16px;
+        }
+
+        .language {
+            padding: 1px 4px;
+            max-width: 150px;
+            min-width: 150px;
+        }
+
+        .showCast {
+            max-width: 350px;
+            font-size: 16px;
+        }
+
+        .clickShow {
+            font-size: 18px;
+            max-width: 150px;
+
+            .genres {
+                font-size: 16px;
+            }
+        }
+
+        .showName {
+            padding: 1px 5px;
+
+            font-size: 22px;
+            max-width: 350px;
+        }
+
+        .genres {
+            font-size: 14px;
+        }
+
+        .sezone {
+
+            padding-left: 4px;
+            font-size: 16px;
+            width: 335px;
+            max-width: 335px;
+            max-height: 55px;
+
+        }
+    }
 
     .place {
         width: 355px;
-    padding: 50px 5px 5px 5px;
+        padding: 50px 5px 5px 5px;
 
 
         .placeBut {
@@ -599,7 +792,7 @@ body {
 
 
     .gridTv {
-    padding-top: 40px;
+        padding-top: 60px;
 
 
         grid-template-columns: auto auto auto;
@@ -779,6 +972,12 @@ body {
                 min-width: 115px;
                 max-width: 115px;
             }
+
+            .imgActor {
+                min-width: 110px;
+                max-width: 110px;
+
+            }
         }
 
         .showNameActor {
@@ -820,6 +1019,7 @@ body {
     }
 
     .footer {
+        padding-top: 100px;
         font-size: 14px;
     }
 

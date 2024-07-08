@@ -26,22 +26,17 @@ const ResultsCelebsNew = () => {
     console.log("iz results tvShow", searchStringValue)
 
     const getTvShow = async (searchStringValue) => {
-        // const url = `https://api.tvmaze.com/search/people?q=${searchStringValue}`;
-        const url = `https://api.api-ninjas.com/v1/celebrity?name=${searchStringValue}`;
+        const url = `https://api.tvmaze.com/search/people?q=${searchStringValue}`;
 
 
         try {
-            const response = await axios.get(url,
-                {
-                    headers: {
-                        'X-Api-Key': 'D+dYjCxDSm5fEkIqyoCIeA==c2GvujXTiAbMIH05'
-                    }
-                }
-            );
+            const response = await axios.get(url)
+           
+          
 
             const data = response.data;
 
-            console.log("rezultat Celebs New", data)
+            console.log("rezultat Celebs New actors", data)
 
             setTvShow(data);
             setResults(data.length);
