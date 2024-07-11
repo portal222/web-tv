@@ -29,9 +29,9 @@ const SezoneList = (props) => {
 
 
 
-                      <div className="summEpis"
-                        >{sezon.summary?.replace('<p>', '').replace('</p>', '').replace('<b>', '').replace('</b>', '')
-                            .replace('<i>', '').replace('</i>', '').replace('<i>', '').replace('</i>', '')}
+                      <div className="summEpis" dangerouslySetInnerHTML={{ __html: sezon.summary }}>
+                            {/* {sezon.summary?.replace('<p>', '').replace('</p>', '').replace('<b>', '').replace('</b>', '')
+                            .replace('<i>', '').replace('</i>', '').replace('<i>', '').replace('</i>', '')} */}
                         </div>
                        
                     </div>

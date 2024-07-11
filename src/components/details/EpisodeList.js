@@ -43,9 +43,11 @@ const EpisodeList = (props) => {
                             <img className="imgSezons"
                                 src={epis.image?.medium} />
                         </div>
-                        <div className="summEpis">{epis.summary?.replace('<p>', '').replace('</p>', '').replace('<br>', '').replace('</br>', '')
+                        <div className="summEpis" dangerouslySetInnerHTML={{ __html: epis.summary }}>
+                            {/* {epis.summary?.replace('<p>', '').replace('</p>', '').replace('<br>', '').replace('</br>', '')
                         .replace('<i>', '').replace('</i>', '').replace('<b>', '').replace('</b>', '').replace('<i>', '').replace('</i>', '').replace('<p>', '').replace('</p>', '')
-                        .replace('<b>', '').replace('</b>', '')}</div>
+                        .replace('<b>', '').replace('</b>', '')} */}
+                        </div>
                         
 
                     </div>

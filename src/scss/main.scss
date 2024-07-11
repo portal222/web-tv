@@ -451,6 +451,7 @@ body {
         font-size: 18px;
         font-weight: bold;
         cursor: pointer;
+        vertical-align: top;
 
         &:hover {
             color: chocolate;
@@ -522,12 +523,15 @@ body {
 
     .runtime {
         display: flex;
+        vertical-align: top;
 
         .rating {
             font-weight: bold;
+            margin: 0px;
         }
 
         .rating2 {
+            margin: 0px;
             padding-left: 10px;
             font-weight: bold;
         }
@@ -625,9 +629,7 @@ body {
 
     }
 
-    p {
-        width: 100px;
-    }
+  
 }
 
 .collapse {
