@@ -1,6 +1,11 @@
+$color1: #e1f5fe;
+$color2: #e3f2fd;
+$color3: #b3e5fc;
+$color4: #fafafa;
+
 body {
-    background-color: rgb(194, 213, 194);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: $color2;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
@@ -16,7 +21,8 @@ body {
         position: fixed;
         width: 1200px;
         height: 50px;
-        background-color: rgb(222, 211, 211);
+        background-color: $color3;
+        z-index: 1;
 
 
     }
@@ -46,7 +52,7 @@ body {
     width: 1200px;
     padding: 80px 10px 10px 10px;
     justify-content: center;
-    background-image: linear-gradient(rgb(222, 211, 211), rgb(194, 213, 194));
+    background-image: linear-gradient($color2, $color1);
 
 
     .placeBut {
@@ -73,7 +79,6 @@ body {
     width: 1200px;
     text-align: left;
     padding-left: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #cccccc;
     font-size: 20px;
 }
@@ -85,7 +90,7 @@ body {
     grid-template-columns: auto auto auto auto auto auto;
     width: 1200px;
     gap: 0px;
-    background-image: linear-gradient(rgb(222, 211, 211), rgb(194, 213, 194));
+    background-image: linear-gradient($color2, $color1);
     font-size: 18px;
 
     .gridItem {
@@ -95,12 +100,14 @@ body {
         text-align: center;
 
         img {
-            padding: 3px;
+
             width: 198px;
             cursor: pointer;
+            border: 4px solid transparent;
+            transition: border 1s;
 
             &:hover {
-                background-color: chocolate;
+                border: 4px solid #0d47a1;
             }
 
 
@@ -145,24 +152,29 @@ body {
     width: 1200px;
     height: 1400px;
     font-size: 26px;
-    color: rgb(5, 85, 58);
+    color: rgb(2, 17, 127);
     text-shadow: 2px 2px 5px gray;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-image: linear-gradient(rgb(222, 211, 211), rgb(194, 213, 194));
+    background-image: linear-gradient($color2, $color1);
 
+}
+
+.guestCast {
+    background-color: $color3;
+    font-size: 20px;
 }
 
 .showMain,
 .showActor {
-    // display: flex;
+ padding-top: 2px;
     margin: auto;
     width: 1200px;
 
-    background-image: linear-gradient(rgb(222, 211, 211), rgb(194, 213, 194));
+    background-image: linear-gradient($color2, $color1);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
-    padding: 60px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
 
 
     .borderBotom {
@@ -221,7 +233,6 @@ body {
     .showCast {
         font-size: 20px;
         border-bottom: 2px solid rgb(160, 159, 159);
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         background-color: #cccccc;
     }
 
@@ -430,8 +441,7 @@ body {
     margin: auto;
     width: 1200px;
 
-    background-image: linear-gradient(rgb(222, 211, 211), rgb(194, 213, 194));
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image: linear-gradient($color2, $color1);
     font-size: 18px;
     padding: 60px 10px 10px 10px;
 
@@ -459,6 +469,7 @@ body {
             cursor: pointer;
         }
     }
+
     .sezone {
 
         padding-left: 6px;
@@ -492,22 +503,30 @@ body {
         font-size: 28px;
     }
 
+    .showCast {
+        background-color: $color3;
+        font-size: 19px;
+    }
+
     .summary {
         margin-left: 5px;
-        max-width: 395px;
-        min-width: 395px;
+        max-width: 650px;
+        min-width: 650px;
         padding: 10px 15px;
         font-size: 24px;
-        border: 1px solid rgb(121, 121, 121);
+        background-color: $color4;
+        // border: 1px solid rgb(121, 121, 121);
         border-radius: 19px;
         vertical-align: top;
     }
 
     .runtime {
         display: flex;
+
         .rating {
             font-weight: bold;
         }
+
         .rating2 {
             padding-left: 10px;
             font-weight: bold;
@@ -519,6 +538,7 @@ body {
         font-weight: bold;
         min-width: 335px;
         max-width: 335px;
+        vertical-align: top;
     }
 
     .genres {
@@ -550,8 +570,7 @@ body {
     display: flex;
     margin: auto;
     width: 1200px;
-    background-image: linear-gradient(rgb(222, 211, 211), rgb(194, 213, 194));
-    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    background-image: linear-gradient($color2, $color1);
 
     .epNumber {
         font-size: 20px;
@@ -597,6 +616,7 @@ body {
     }
 
     .summEpis {
+        margin-top: 5px;
         width: 450px;
         padding: 10px 15px;
         font-size: 22px;
@@ -610,11 +630,18 @@ body {
     }
 }
 
+.collapse {
+
+    margin: auto;
+    width: 1200px;
+    border-bottom: solid 1px $color3;
+}
+
 .footer {
     text-align: center;
-    font-family: Tahoma, Geneva, Verdana, sans-serif;
     font-size: 18px;
     padding-top: 500px;
+    background-color: $color2;
 }
 
 .back-to-top {
@@ -637,6 +664,17 @@ body {
         border-radius: 5px;
         border: solid 3px #95beba7c;
     }
+}
+
+.loader {
+    display: flex;
+    width: 1200px;
+    background-color: $color2;
+
+    height: 900px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 500px) {
@@ -720,12 +758,16 @@ body {
 
         }
     }
+
     .details {
         display: block;
         width: 355px;
         font-size: 14px;
         padding: 60px 5px 5px 5px;
-        // padding-top: 300px;
+  
+        .wrap {
+            font-size: 14px;
+        }
 
         .holdImg {
             padding: 2px;
@@ -733,6 +775,7 @@ body {
             .imgShow {
                 max-width: 345px;
                 min-width: 345px;
+                border-radius: 7px;
             }
         }
 
@@ -747,7 +790,7 @@ body {
         }
 
         a {
-            font-size: 16px;
+            font-size: 14px;
         }
 
         .language {
@@ -812,20 +855,26 @@ body {
 
         grid-template-columns: auto auto auto;
         width: 355px;
-        background-image: linear-gradient(#c8e6c9, #dcedc8);
+
 
 
         font-size: 16px;
 
         .gridItem {
 
-
+            padding: 2px;
             max-width: 105x;
-            padding: 0px;
-
+            
+            
             img {
-                padding: 2px;
-                width: 115px;
+                
+                width: 103px;
+                border: 2px solid transparent;
+
+                &:hover {
+                    border: 2px solid chocolate;
+
+                }
             }
 
             .showName {
@@ -925,10 +974,7 @@ body {
         display: block;
         margin: auto;
         width: 355px;
-        background-image: linear-gradient(rgb(222, 211, 211), rgb(194, 213, 194));
-        font-family: Tahoma, Geneva, Verdana, sans-serif;
-
-
+       
         .episName {
             width: 200px;
         }
@@ -972,7 +1018,7 @@ body {
     }
 
     .showMain {
-
+padding-top: 50px;
         width: 355px;
 
         .bigImg {
@@ -1031,6 +1077,11 @@ body {
         .genres {
             font-size: 14px;
         }
+    }
+
+    .collapse {
+
+        width: 345px;
     }
 
     .footer {

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import GuestCaracter from "./GuestCaracter";
+import TableRow from "./TableRow";
 
 const EpisodeList = (props) => {
 
@@ -50,7 +50,7 @@ const EpisodeList = (props) => {
 
                     </div>
 
-                    <GuestCaracter embedded={epis?._embedded.guestcast} />
+                    <TableRow embedded={epis?._embedded.guestcast} />
 
 
                 </div>

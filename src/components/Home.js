@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import BackToTop from "./BackToTop";
+import Loader from "./Loader"
+
 
 
 
@@ -10,34 +12,37 @@ const Home = () => {
     const [error, setError] = useState(null);
     const [vreme, setVreme] = useState([]);
     const [serije, setSerije] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     const navigate = useNavigate();
 
 
     useEffect(() => {
-      
+
         getTv();
     }, [])
 
- 
 
 
 
- 
+
+
 
     const getTv = async () => {
 
         const mestoDatuma = vreme
 
         const urlTv = `https://api.tvmaze.com/schedule/web?date=${mestoDatuma}`;
-        // const urlTv = `https://api.tvmaze.com/schedule?country=gb&date=${mestoDatuma}`;
-        // const urlTv = `https://api.tvmaze.com/schedule/web?date=${mestoDatuma}&country=US`
+
         try {
             const responseTv = await axios.get(urlTv);
 
             const dataTv = responseTv.data
             console.log("podaci iz Serija", dataTv);
             setSerije(dataTv);
+            setIsLoading(false);
+
 
 
         } catch (err) {
@@ -51,14 +56,16 @@ const Home = () => {
 
     }
 
-
+    if (isLoading) {
+        return <Loader />
+    }
     return (
         <>
-          
             <div className="gridTv">
                 {serije.map((serija) => (
                     <>
-                        <div className="gridItem">
+                        <div key={serija.id}
+                            className="gridItem">
                             <img src={serija._embedded.show.image?.medium} alt="no picture"
                                 onClick={() => clickShow(serija._embedded.show.id)}
                             />

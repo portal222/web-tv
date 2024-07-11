@@ -30,7 +30,7 @@ const Navigation = () => {
         basename="/">
         <div className="provider">
           <div className="fixed">
-                <NavLink to="/">
+            <NavLink to="/">
               <Button variant="contained" sx={{ ml: 2 }}>
                 Home</Button >
             </NavLink>
@@ -39,11 +39,11 @@ const Navigation = () => {
                 Search</Button>
             </NavLink>
           </div>
-         
 
-        
 
-       
+
+
+
         </div>
 
 
@@ -62,8 +62,10 @@ const Navigation = () => {
 
       <div className="footer">
         <hr></hr>
-        <p> &copy; InTerVal <br></br>
+        <p>
           Json base from <a href="https://www.tvmaze.com" target="_blank">TvMaze</a></p>
+
+        &copy; InTerVal
       </div>
     </>
   )

@@ -5,12 +5,15 @@ import ActorCharacters from "./ActorCharacters";
 import ActorCharacterShow from "./ActorCharacterShow";
 import DetailsEpisode from "./DetailsEpisode";
 import BackToTop from "../BackToTop";
+import Loader from "../Loader"
 
 const DetailsActor = () => {
     const [error, setError] = useState(null);
     const [person, setPerson] = useState([]);
     const [cast, setCast] = useState([]);
     const [guestCast, setGuestCast] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     const params = useParams()
     const actorId = params.actorId;
@@ -53,12 +56,18 @@ const DetailsActor = () => {
             setPerson(data);
             setCast(data._embedded.castcredits)
             setGuestCast(dataCast);
+            setIsLoading(false);
+
 
         } catch (err) {
             setError(err);
         }
     };
 
+
+    if (isLoading) {
+        return <Loader />
+    }
     return (
         <>
             <div className="details">
@@ -97,7 +106,7 @@ const DetailsActor = () => {
                             <td>Cast</td>
                         </tr>
                         {cast.map((dataCast) => (
-                            <tr >
+                            <tr key={dataCast.id}>
                                 <td className="borderBotom">
                                     <ActorCharacterShow show={dataCast._links.show.href} />
                                 </td>
