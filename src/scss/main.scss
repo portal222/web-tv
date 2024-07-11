@@ -4,6 +4,10 @@ body {
 
 }
 
+.average {
+    color: transparent;
+}
+
 .provider {
     margin: auto;
     width: 1200px;
@@ -497,6 +501,17 @@ body {
         border: 1px solid rgb(121, 121, 121);
         border-radius: 19px;
         vertical-align: top;
+    }
+
+    .runtime {
+        display: flex;
+        .rating {
+            font-weight: bold;
+        }
+        .rating2 {
+            padding-left: 10px;
+            font-weight: bold;
+        }
     }
 
     .language {

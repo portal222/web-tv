@@ -69,6 +69,27 @@ const DetailsTvShow = () => {
         navigate(LinkTo);
     }
 
+      const classFunction = (average) => {
+        if (average == null ) {
+            return 'average';
+        } 
+    }
+
+    const classFunction2 = (runtime) => {
+        if (runtime == null ) {
+            return 'average';
+        } 
+    }
+
+    const classFunction3 = (ended) => {
+        if (ended == null ) {
+            return 'average';
+        } 
+    }
+
+    
+
+
     return (
         <>
             <div className="details">
@@ -102,14 +123,22 @@ const DetailsTvShow = () => {
                         </tr>
                         <tr>
                             <td className="language">{show.language}</td>
-                            <td className="language">{show.rating?.average + "  Runtime " + show.runtime + " min"}</td>
+                            <td className="runtime">
+                            <p className={`rating ${classFunction(show.rating?.average)}`}>
+                                {"rating " + show.rating?.average + " "}
+                                </p>
+                                <p className={`rating2 ${classFunction2(show.runtime)}`}>
+                                    { " " + " runtime " + show.runtime + " min"}
+                                    </p>
+                                    </td>
                         </tr>
 
                         <EpisodeNumber sezones={sezons} />
 
                         <tr>
-                            <td>Premiered:{" " + show.premiered}</td>
-                            <td>Ended:{" " + show.ended}</td>
+                            <td className="rating3">Premiered:{" " + show.premiered}</td>
+                            <td className={`rating3 ${classFunction3(show.ended)}`}>
+                                {"Ended: " + show.ended}</td>
                         </tr>
                         <tr>
                             <td colSpan={3} className="summary" dangerouslySetInnerHTML={{ __html: show.summary }}>
@@ -146,7 +175,7 @@ const DetailsTvShow = () => {
                                     <tbody>
                                         <tr >
                                             {cast.map((person) => (
-                                                <td >
+                                                <td key={person.character.id}>
                                                     <div className="guest">
                                                         <img className="guestImg"
                                                             src={person.character?.image?.medium} alt="no picture" />

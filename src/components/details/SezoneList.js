@@ -7,7 +7,7 @@ const SezoneList = (props) => {
     return (
         <>
             {props.sezone.map((sezon) => (
-                <div>
+                <div key={sezon.id}>
                     <div className="sezoneList">
                         <div>
                             <table>

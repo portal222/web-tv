@@ -13,23 +13,23 @@ const DetailsEpisode = (props) => {
 
 
     useEffect(() => {
-getEpisode();
+        getEpisode();
     }, [])
 
     const getEpisode = async () => {
 
-const url = `https://api.tvmaze.com/episodes/${props.episodeId}?embed=show`;
+        const url = `https://api.tvmaze.com/episodes/${props.episodeId}?embed=show`;
 
-try {
-    const response = await axios.get(url);
+        try {
+            const response = await axios.get(url);
 
-    const data = response.data;
+            const data = response.data;
 
-    setEpisode(data._embedded.show);
-    setNumber(data);
-} catch (err) {
-    setError(err);
-}
+            setEpisode(data._embedded.show);
+            setNumber(data);
+        } catch (err) {
+            setError(err);
+        }
     };
 
     const clickShow = (showId) => {
@@ -37,18 +37,23 @@ try {
         navigate(LinkTo);
     }
 
-return (
-<>
-<tr>
-    <td className="clickShow"
-    onClick={() => clickShow(episode.id)}>
-        {episode.name}</td>
-    <td className="number">
-       S{number.season + " E" + number.number}</td>
-</tr>
-</>
+    return (
+        <>
+            <table>
+                <tbody>
+                    <tr>
+                        <td className="clickShow"
+                            onClick={() => clickShow(episode.id)}>
+                            {episode.name}</td>
+                        <td className="number">
+                            S{number.season + " E" + number.number}</td>
+                    </tr>
+                </tbody>
+            </table>
 
-)
+        </>
+
+    )
 
 }
 export default DetailsEpisode;

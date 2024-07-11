@@ -31,7 +31,7 @@ const EpisodeList = (props) => {
     return (
         <>
             {episode.map((epis) => (
-                <div>
+                <div key={epis.id}>
                     <div className="sezoneList">
                         <div >
                             <p className="epNumber">E{epis.number}</p>

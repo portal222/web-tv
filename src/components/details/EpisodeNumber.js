@@ -12,7 +12,7 @@ const EpisodeNumber = (props) => {
                 <div className="sezone">
                     {props.sezones.map((sezone) => (
 
-                        <p>
+                        <p key={sezone.id}>
                             {"Sezone: " + sezone.number + " Episode: " + sezone.episodeOrder}
                         </p>
 

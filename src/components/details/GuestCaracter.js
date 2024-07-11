@@ -27,7 +27,7 @@ const GuestCaracter = (props) => {
                                     <tbody>
                                         <tr >
                                             {props.embedded.map((person) => (
-                                                <td >
+                                                <td key={person.character.id}>
                                                     <div className="guest">
                                                         <img className="guestImg"
                                                             src={person.character?.image?.medium} alt="no picture" />
